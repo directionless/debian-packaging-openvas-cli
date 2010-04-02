@@ -1,0 +1,19 @@
+http://lists.wald.intevation.org/pipermail/openvas-devel/2010-April/002150.html
+
+Index: CMakeLists.txt
+===================================================================
+--- CMakeLists.txt      (revision 7205)
++++ CMakeLists.txt      (working copy)
+@@ -61,9 +61,9 @@
+ set (CPACK_GENERATOR "TGZ")
+ set (CPACK_INSTALL_CMAKE_PROJECTS ".;openvas-cli;ALL;/")
+ set (CPACK_MODULE_PATH "")
+-set (CPACK_RESOURCE_FILE_LICENSE "COPYING")
+-set (CPACK_RESOURCE_FILE_README "README")
+-set (CPACK_RESOURCE_FILE_WELCOME "README")
++set (CPACK_RESOURCE_FILE_LICENSE "${CMAKE_SOURCE_DIR}/COPYING")
++set (CPACK_RESOURCE_FILE_README "${CMAKE_SOURCE_DIR}/README")
++set (CPACK_RESOURCE_FILE_WELCOME "${CMAKE_SOURCE_DIR}/README")
+ set (CPACK_SOURCE_GENERATOR "TGZ")
+ set (CPACK_SOURCE_TOPLEVEL_TAG "")
+ set (CPACK_SYSTEM_NAME "")
