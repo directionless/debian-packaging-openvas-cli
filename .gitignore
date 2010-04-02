@@ -1,0 +1,5 @@
+openvas-cli.debhelper.log
+openvas-cli.substvars
+openvas-cli
+stamp-makefile-build
+files
