@@ -6,7 +6,7 @@ Homepage: http://www.openvas.org/
 Standards-Version: 3.8.3
 Build-Depends: @cdbs@, cmake, libopenvas3-dev, libgnutls-dev, libxslt1-dev
 
-Package: openvas-clu
+Package: openvas-cli
 Architecture: any
 Depends: ${shlibs:Depends}
 Description: Remote network security auditor, the client
