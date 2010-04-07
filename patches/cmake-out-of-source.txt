@@ -1,9 +1,16 @@
-http://lists.wald.intevation.org/pipermail/openvas-devel/2010-April/002150.html
-
 Index: CMakeLists.txt
 ===================================================================
---- CMakeLists.txt      (revision 7205)
-+++ CMakeLists.txt      (working copy)
+--- CMakeLists.txt	(revision 7230)
++++ CMakeLists.txt	(working copy)
+@@ -39,7 +39,7 @@
+ FIND_PROGRAM(SVN_EXECUTABLE svn DOC "subversion command line client")
+ 
+ MACRO(Subversion_GET_REVISION dir variable)
+-  EXECUTE_PROCESS(COMMAND ${SVN_EXECUTABLE} info ${dir}
++  EXECUTE_PROCESS(COMMAND ${SVN_EXECUTABLE} info ${CMAKE_SOURCE_DIR}/${dir}
+     OUTPUT_VARIABLE ${variable}
+     OUTPUT_STRIP_TRAILING_WHITESPACE)
+   STRING(REGEX REPLACE "^(.*\n)?Revision: ([^\n]+).*"
 @@ -61,9 +61,9 @@
  set (CPACK_GENERATOR "TGZ")
  set (CPACK_INSTALL_CMAKE_PROJECTS ".;openvas-cli;ALL;/")
