@@ -1,11 +1,47 @@
-These are my files for making a dpkg of openvas-cli.
-It's a very trivial debian directory.
+simple packaging for openvas-cli, The openvas command line client
 
-The control file can be regenerated with:
+I made this, because I couldn't find anything else. I am not
+a debian developer, there may be bugs, etc. But you're welcome
+to use it, modify it, extend it
 
-   ./debian/rules debian/control DEB_AUTO_UPDATE_DEBIAN_CONTROL=yes
+I've build openvas-cli from svn revision 7289 on Ubuntu Hardy 8.04
+so that's what I know works. I expect other things work as well.
 
-but it probably won't need to be.
+Note that the openvas suite of things has several poorly documented
+interdependancies. I recommend against trying to mix versions.
 
-I made them for internal use at my employer, but others are welcome to them.
-You probably want to change the maintainer email address
+You Milage May Vary
+
+##########################################
+
+# How I build packages:
+
+# First, set up the build directory and checkout
+
+mkdir /var/tmp/openvas-cli
+cd /var/tmp/openvas-cli
+
+svn checkout http://svn.wald.intevation.org/svn/openvas/trunk/openvas-cli -r 7289
+cd openvas-cli
+git clone   \
+  http://github.com/directionless/debian-packaging-openvas-cli.git debian
+
+
+# If you're using a newer svn revision, you should update the 
+# debian/changelog
+#mkdir b
+#cd b
+#cmake ..
+#cd ..
+#dch --newversion $(cat b/VERSION) update to svn
+#perl -pi -e 's{jaunty}{UNRELEASED}' debian/changelog
+#rm -rf b
+
+# If you've updated control.in, you'll need to regenerate control.
+# You probably don't need this.
+# ./debian/rules debian/control DEB_AUTO_UPDATE_DEBIAN_CONTROL=yes
+
+# Build the package
+debuild -i -us -uc -b
+
+# Enjoy. It should be in ../
